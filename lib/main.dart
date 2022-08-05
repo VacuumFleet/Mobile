@@ -15,7 +15,7 @@ class VacuumFleet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
-        title: 'Cash Manager',
+        title: 'VacuumFleet',
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
