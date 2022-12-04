@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:mobile/views/login.dart';
 import 'package:sizer/sizer.dart';
+import 'views/MainPage.dart';
 
 Future main() async {
   await dotenv.load(fileName: '.env');
@@ -19,7 +19,8 @@ class VacuumFleet extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.lightBlue,
         ),
-        home: const ConnexionPage(title: 'Authentication'),
+        home: const HomePageWidget(),
+        // home: const ConnexionPage(title: 'Authentication'),
       );
     });
   }
