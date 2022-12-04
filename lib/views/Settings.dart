@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 
 import '../utils_flutter_flow/myservice.dart';
 
+import '../bluetooth/MainPage.dart';
+
 class SettingsWidget extends StatefulWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final String robotname;
@@ -148,7 +150,7 @@ class _SettingsWidget extends State<SettingsWidget>{
     );
   }
 void _navigateToConfiguration(BuildContext context) {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfigurationDuRobotWidget(robotname: widget.robotname)));
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage()));
 }
 void _navigateToAssistance(BuildContext context) {
   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AssistanceWidget()));

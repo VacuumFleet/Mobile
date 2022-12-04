@@ -1,5 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:mobile/commands/robot_connect.dart';
+import 'package:mobile/commands/robot_start.dart';
+import 'package:mobile/commands/robot_stop.dart';
+
+import '../config.dart';
 import 'Assistances.dart';
 import 'Settings.dart';
 
@@ -60,7 +65,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 child: Align(
                   alignment: AlignmentDirectional(0, 0),
                   child: FFButtonWidget(
-                    onPressed: () {
+                    onPressed: () async {
+                      if(robotConnection != null && robotConnection!.isConnected) {
+                        robotStart();
+                      } else {
+                        await robotConnect();
+                        robotStart();
+                      }
                     },
                     text: 'Démarrer',
                     options: FFButtonOptions(
@@ -84,7 +95,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 child: Align(
                   alignment: AlignmentDirectional(0, -1),
                   child: FFButtonWidget(
-                    onPressed: () {
+                    onPressed: () async {
+                      if(robotConnection != null && robotConnection!.isConnected) {
+                        robotStop();
+                      } else {
+                        await robotConnect();
+                        robotStop();
+                      }
                     },
                     text: 'Arrêt',
                     options: FFButtonOptions(
