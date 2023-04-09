@@ -4,8 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:mobile/config.dart';
 
 Future authentication(loginParams) async {
-  var result = await http.post(Uri.parse("$apiUrl/auth/login"),
-      headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-      body: convert.jsonEncode(loginParams));
+  var result = await http.post(Uri.parse("$apiUrl/token/"),
+      headers: {
+        HttpHeaders.contentTypeHeader: 'application/x-www-form-urlencoded'
+      },
+      body: loginParams);
   return result;
 }

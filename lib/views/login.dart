@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/views/main_page.dart';
 import 'package:mobile/commands/authentication.dart';
-import 'package:mobile/views/robotactions.dart';
 import 'package:sizer/sizer.dart';
 
 class ConnexionPage extends StatefulWidget {
@@ -71,7 +71,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const RobotActionsPage(),
+            builder: (context) => const HomePageWidget(),
           ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
