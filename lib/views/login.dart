@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/views/main_page.dart';
 import 'package:mobile/commands/authentication.dart';
+import 'package:mobile/views/robotslist.dart';
 import 'package:sizer/sizer.dart';
+
+import '../utils_flutter_flow/flutter_flow_theme.dart';
 
 class ConnexionPage extends StatefulWidget {
   const ConnexionPage({Key? key, required this.title}) : super(key: key);
@@ -26,7 +29,16 @@ class _ConnexionPageState extends State<ConnexionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        automaticallyImplyLeading: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        title: Text(
+          "Connexion",
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Jaldi',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
       ),
       body: Center(
         child: SizedBox(
@@ -60,7 +72,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
               usernameController.text, passwordController.text, _loginCallback);
         },
         icon: const Icon(Icons.check_circle_outline),
-        label: const Text("Authenticate"),
+        label: const Text("Se connecter"),
         backgroundColor: Colors.green[400],
       ),
     );
@@ -68,11 +80,9 @@ class _ConnexionPageState extends State<ConnexionPage> {
 
   void _loginCallback(bool authenticated) {
     if (authenticated) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomePageWidget(),
-          ));
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => RobotsListPage(),
+      ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(

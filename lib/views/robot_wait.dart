@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/commands/robot.dart';
+import 'package:mobile/views/robotslist.dart';
 
 class RobotWaitWidget extends StatefulWidget {
   @override
@@ -20,7 +21,16 @@ class _RobotWaitWidgetState extends State<RobotWaitWidget> {
       _isWaiting = true;
     });
 
-    await configureRobot();
+    await configureRobot((params) async {
+      await registerRobot(params[0], params[1]);
+      setState(() {
+        _isWaiting = false;
+      });
+
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => RobotsListPage(),
+      ));
+    });
   }
 
   @override
@@ -33,6 +43,7 @@ class _RobotWaitWidgetState extends State<RobotWaitWidget> {
               : const Icon(
                   Icons.check_circle,
                   color: Colors.green,
+                  size: 150,
                 ),
         ),
       ),

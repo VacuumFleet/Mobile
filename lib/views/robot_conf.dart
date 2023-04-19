@@ -14,7 +14,6 @@ class RobotConfigurationWidget extends StatelessWidget {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: false,
         title: Text(
           "Configuration d'un nouveau robot",
           style: FlutterFlowTheme.of(context).title2.override(
